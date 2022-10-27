@@ -172,7 +172,6 @@ class TestLogin:
         time.sleep(1)
         self.lp.click_reset_password()
         confirmation = self.lp.wait_confirmation_msg()
-        print(confirmation)
         if confirmation == ['Click the link in the email to reset your password.']:
             assert True
         else:

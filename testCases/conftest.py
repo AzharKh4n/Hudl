@@ -1,3 +1,4 @@
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
 import pytest
@@ -5,8 +6,7 @@ import pytest
 
 @pytest.fixture()
 def setup():
-    s = Service('/Users/khan/PycharmProjects/Hudl/chromedriver')
-    driver = webdriver.Chrome(service=s)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.maximize_window()
     yield driver
     driver.close()
